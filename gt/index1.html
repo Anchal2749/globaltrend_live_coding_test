@@ -1,0 +1,62 @@
+//PROBLEM STATEMENT 1
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Navbar</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <style>
+        .nav-menu {
+            display: none;
+        }
+        @media (min-width:640px){
+            .nav-menu{
+                display:flex;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <nav class="bg-green-900 p-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <div class="text-white text-xl font-bold">Logo</div>
+            
+                <div class="block sm:hidden">
+                    <button id="menu-button" class="text-white focus:outline-none">
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/200/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/>
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="nav-menu sm:flex space-x-4">
+                    <a href="#" class="text-white hover:text-gray-400">Home</a>
+                    <a href="#" class="text-white hover:text-gray-400">About</a>
+                    <a href="#" class="text-white hover:text-gray-400">Contact</a>
+                </div>
+            </div>
+
+            <div id="mobile-menu" class="sm:hidden mt-2 space-y-2">
+                <a href="#" class="block text-white hover:text-gray-400">Home</a>
+                <a href="#" class="block text-white hover:text-gray-400">About</a>
+                <a href="#" class="block text-white hover:text-gray-400">Contact</a>
+            </div>
+
+    </nav>
+
+    <script>
+        document.getElementById('menu-button').onclick = function(){
+            var mobileMenu = document.getElementById('mobile-menu');
+            if(mobileMenu.style.display==="block"){
+                mobileMenu.style.display = "none";
+            }else{
+                mobileMenu.style.display = "block";
+            }
+        }
+    </script>
+    
+</body>
+</html>

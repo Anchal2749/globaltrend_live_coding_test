@@ -1,0 +1,61 @@
+//PROBLEM STATEMENT 3
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image gallery with Model</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+ <style>
+    #myModal {
+        display: none;
+        position: fixed;
+        z-index: 1;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(33, 19, 188, 0.5);
+    }
+    #modalContent{
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #040625;
+        width: 80%;
+        max-width: 700px;
+    }
+ </style>
+</head>
+<body class="bg-green-100" >
+    <div class="container mx-auto p-4">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <img src="https://via.placeholder.com/150" alt="Image 1" class="cursor-pointer" onclick="openModal(this)">
+            <img src="https://via.placeholder.com/150" alt="Image 2" class="cursor-pointer" onclick="openModal(this)">
+            <img src="https://via.placeholder.com/150" alt="Image 3" class="cursor-pointer" onclick="openModal(this)">
+            <img src="https://via.placeholder.com/150" alt="Image 4" class="cursor-pointer" onclick="openModal(this)">
+        </div>
+    </div>
+    <div id="myModal" class="flex items-center justify-center">
+        <div id="modalContent" class="bg-white p-4 rounded-lg relative" onclick="event.stopPropagation()">
+            <span class="absolute top-2 right-2 cursor-pointer text-gray-600" onclick="closeModal()">&#x2715;</span>
+            <img id="modalImage" src="" alt="Large Image" class="w-full h-auto">
+        </div>
+    </div>
+    <script>
+        function openModal(element){
+            document.getElementById('modalImage').src = element.src;
+            document.getElementById('myModal').style.display='flex';
+        }
+
+        function closeModal(){
+            document.getElementById('myModal').style.display = 'none';
+        }
+
+        window.onclick = function(event) {
+            if(event.target == document.getElementById('myModal')){
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html>
